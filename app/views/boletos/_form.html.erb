@@ -1,0 +1,41 @@
+<%= form_for(@boleto) do |f| %>
+  <% if @boleto.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@boleto.errors.count, "error") %> prohibited this boleto from being saved:</h2>
+
+      <ul>
+      <% @boleto.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :amount %><br>
+    <%= f.text_field :amount %>
+  </div>
+  <div class="field">
+    <%= f.label :discount %><br>
+    <%= f.text_field :discount %>
+  </div>
+  <div class="field">
+    <%= f.label :date %><br>
+    <%= f.text_field :date %>
+  </div>
+  <div class="field">
+    <%= f.label :maturity %><br>
+    <%= f.date_select :maturity %>
+  </div>
+  <div class="field">
+    <%= f.label :days_to_maturity %><br>
+    <%= f.number_field :days_to_maturity %>
+  </div>
+  <div class="field">
+    <%= f.label :doc_number %><br>
+    <%= f.text_field :doc_number %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

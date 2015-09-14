@@ -1,0 +1,38 @@
+<h1>Bancos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Default</th>
+      <th>Name</th>
+      <th>Agencia</th>
+      <th>Conta corrente</th>
+      <th>Variacao</th>
+      <th>Aceite</th>
+      <th>Carteira</th>
+      <th>Convenio</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @banks.each do |bank| %>
+      <tr>
+        <td><%= bank.default_bank %></td>
+        <td><%= bank.name %></td>
+        <td><%= bank.agencia %></td>
+        <td><%= bank.conta_corrente %></td>
+        <td><%= bank.variacao %></td>
+        <td><%= bank.aceite %></td>
+        <td><%= bank.carteira %></td>
+        <td><%= bank.convenio %></td>
+        <td><%= link_to 'Edit', edit_bank_path(bank) %></td>
+        <td><%= link_to 'Destroy', bank, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Bank', new_bank_path %>

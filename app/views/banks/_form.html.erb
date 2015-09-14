@@ -1,0 +1,65 @@
+<%= form_for(@bank) do |f| %>
+  <% if @bank.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@bank.errors.count, "error") %> prohibited this bank from being saved:</h2>
+
+      <ul>
+      <% @bank.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.check_box :default_bank %>
+    <%= f.label :default_bank %><br>
+  </div>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cedente %><br>
+    <%= f.text_field :cedente %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cedente_doc %><br>
+    <%= f.text_field :cedente_doc %>
+  </div>
+
+  <div class="field">
+    <%= f.label :agencia %><br>
+    <%= f.text_field :agencia %>
+  </div>
+  <div class="field">
+    <%= f.label :conta_corrente %><br>
+    <%= f.text_field :conta_corrente %>
+  </div>
+  <div class="field">
+    <%= f.label :variacao %><br>
+    <%= f.text_field :variacao %>
+  </div>
+  <div class="field">
+    <%= f.label :aceite %><br>
+    <%= f.text_field :aceite %>
+  </div>
+  <div class="field">
+    <%= f.label :carteira %><br>
+    <%= f.text_field :carteira %>
+  </div>
+  <div class="field">
+    <%= f.label :convenio %><br>
+    <%= f.text_field :convenio %>
+  </div>
+  <div class="field">
+    <%= f.label :instrucao_juros %><br>
+    <%= f.text_field :instrucao_juros %>
+  </div>
+  <div class="actions">
+    <%= f.submit nil, class: 'btn' %>
+  </div>
+<% end %>

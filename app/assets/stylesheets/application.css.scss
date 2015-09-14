@@ -1,0 +1,156 @@
+@import "materialize/components/color";
+$primary-color: color("blue-grey", "base") !default;
+$secondary-color: color("light-green", "base") !default;
+@import 'materialize';
+
+$nprogress-color: $secondary-color !default;
+//$nprogress-height: 5px;
+//$nprogress-zindex: 10100;
+@import 'nprogress';
+
+//toasts
+.toast-success {
+  background-color: $secondary-color;
+}
+
+.toast-fail {
+  background-color: color("deep-orange", "darken-1");
+}
+
+.btn-social {
+  margin-left: 5px;
+}
+
+.login-form {
+  width:400px;
+  margin:0 auto;
+  margin-top:150px;
+}
+
+.important-label {
+  background-color: #ff5722 !important;
+  color: white;
+  border-left-width: 2px;
+  padding: 2px 5px;
+  margin-right: 3px;
+  margin-left: 3px;
+  border-radius: 2px;
+  font-size: 13px;
+}
+
+.tank-number-label {
+  background-color: $secondary-color;
+  color: white;
+  border-left-width: 2px;
+  padding: 2px 5px;
+  margin-left: 5px;
+  border-radius: 2px;
+  font-size: 11px;
+}
+
+.prices-label {
+  font-size: 11px;
+  //background-color: $primary-color;
+  color: $primary-color;
+  border-top-width: 2px;
+  padding: 2px 3px;
+  border-radius: 2px;
+}
+
+tbody {
+  font-size: 14px
+}
+
+//animations
+//fade in up
+
+@mixin animate($name, $duration: .3s, $delay: 0, $iterate: 1) {
+  $delay: $delay + '';
+
+  @if (str-index($delay, s) == null) {
+    $delay: unquote($delay + 's');
+  }
+
+  animation: $name $duration $delay $iterate;
+}
+
+.animated {
+  animation-duration: .3s;
+  animation-fill-mode: both;
+}
+
+@keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+.fadeIn {
+  @extend .animated;
+  animation-name: fadeIn;
+}
+
+.drop-container {
+  position: relative;
+  display: block;
+
+  .drop-popover {
+    display:block;
+    background-color: #F4F4F4;
+    padding: 1em;
+    margin-top: 20px;
+    border-radius: 4px;
+    position:absolute;
+    top:4em;
+    z-index:1;
+    width:400px;
+    color:#333;
+    overflow: hidden;
+    max-height: 178px;
+
+    ul {
+      max-height: 300px;
+      display: block;
+      overflow-y: auto;
+
+      li {
+        padding: 0.5rem;
+        display: block;
+        cursor: pointer;
+
+        &.active {
+          background-color: darkslategrey;
+          color: whitesmoke;
+        }
+      }
+    }
+  }
+
+  .drop-popover:before {
+    content:"";
+    position: absolute;
+    left:30px;
+    top: -20px;
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-bottom: 10px solid #F4F4F4;
+  }
+}
+
+.boletoTable-enter {
+  opacity: 0.01;
+}
+
+.boletoTable-enter.boletoTable-enter-active {
+  opacity: 1;
+  transition: opacity .3s ease-in;
+}
+
+.boletoTable-leave {
+  opacity: 1;
+}
+
+.boletoTable-leave.boletoTable-leave-active {
+  opacity: 0.01;
+  transition: opacity .5s ease-in;
+}

@@ -1,0 +1,16 @@
+<nav>
+  <div class="nav-wrapper">
+    <div class="container">
+    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+      <%= link_to 'Boletos', root_path, class: 'brand-logo' %>
+      <ul class="right hide-on-med-and-down">
+        <li><%= link_to 'Clientes', clients_path %></li>
+        <li><%= link_to 'Bancos', banks_path %></li>
+      </ul>
+      <ul class="side-nav" id="mobile-demo">
+        <li><%= link_to 'Clientes', clients_path %></li>
+        <li><%= link_to 'Bancos', banks_path %></li>
+      </ul>
+    </div>
+  </div>
+</nav>
